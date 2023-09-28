@@ -27,9 +27,19 @@ Heap* createHeap(){
   if (newHeap != NULL)
   {
     newHeap -> capac = 3;
-    //newHeap -> size = 0;
+    newHeap -> size = 0;
 
-    return newHeap;
+    newHeap -> heapArray = (heapElem*)malloc(newHeap->capac * sizeof(heapElem));
+
+    if (newHeap != NULL)
+    {
+      return newHeap; 
+    }
+    else
+    {
+      return NULL;
+    }
+    
   }
 
   
