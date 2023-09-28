@@ -76,7 +76,6 @@ void heap_push(Heap* pq, void* data, int priority){
   newElem.data = data;
   newElem.priority = priority;
 
-  
   if (pq -> size == pq -> capac)
   {
     pq -> capac = (pq -> capac * 2) + 1;
@@ -95,7 +94,6 @@ void heap_push(Heap* pq, void* data, int priority){
     posicion = (posicion - 1) / 2;
   }
   
-  return;
 }
 /*
 
