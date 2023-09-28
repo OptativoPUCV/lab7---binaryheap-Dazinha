@@ -71,8 +71,37 @@ void* heap_top(Heap* pq){
 */
 
 void heap_push(Heap* pq, void* data, int priority){
+  heapElem newElem;
+
+  newElem.data = data;
+  newElem.priority = priority;
+
+  
+  if (pq -> size == pq -> capac)
+  {
+    pq -> capac = (pq -> capac * 2) + 1;
+    pq -> heapArray = realloc(pq -> heapArray, pq -> capac * sizeof(heapElem));
+  }
+  
+  int posicion = pq -> size;
+  pq -> heapArray[posicion] = newElem;
+  pq -> size++;
+
+  while (posicion > 0 && pq->heapArray[posicion].priority > pq->heapArray[(posicion - 1) / 2].priority) {
+    heapElem temp = pq -> heapArray[posicion];
+    pq->heapArray[posicion] = pq -> heapArray[(posicion - 1) / 2];
+    pq->heapArray[(posicion - 1) / 2] = temp;
+    
+    posicion = (posicion - 1) / 2;
+  }
+  
   return;
 }
+/*
+
+    // Reajuste (Heapify Up)
+
+*/
 
 /*
 4. Implemente la función `void heap_pop(Heap* pq)`. Esta función elimina el mayor elemento del montículo (la raíz). Si no recuerda el procedimiento puede ver las [diapositivas](https://docs.google.com/presentation/d/1ZjXWMf6g05WdICqvno_oyRvorjAThABgbRGbEqc7mYU/edit#slide=id.g10c6e3d52b_0_98).
