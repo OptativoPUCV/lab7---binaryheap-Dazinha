@@ -27,7 +27,7 @@ Heap* createHeap(){
   if (newHeap != NULL)
   {
     newHeap -> capac = 3;
-    newHeap -> size = 0;
+    //newHeap -> size = 0;
 
     return newHeap;
   }
