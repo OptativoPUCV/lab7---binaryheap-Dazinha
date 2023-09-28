@@ -22,7 +22,15 @@ typedef struct Heap{
 */
 
 Heap* createHeap(){
+  Heap *newHeap = (Heap*) malloc(sizeof(Heap));
 
+  if (newHeap != NULL)
+  {
+    newHeap -> capac = 3;
+    
+  }
+
+  
    return NULL;
 }
 
