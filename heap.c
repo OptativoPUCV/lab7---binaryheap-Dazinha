@@ -61,7 +61,6 @@ void* heap_top(Heap* pq){
     // Eliminación de la raíz
     void* maximo = pq -> heapArray[0].data;
     pq -> heapArray[0] = pq -> heapArray[pq->size - 1];
-    pq -> size--;
 
     return maximo;
 }
