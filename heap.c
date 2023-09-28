@@ -86,19 +86,26 @@ void heap_push(Heap* pq, void* data, int priority){
   pq -> heapArray[posicion] = newElem;
   pq -> size++;
 
-  while (posicion > 0 && pq->heapArray[posicion].priority > pq->heapArray[(posicion - 1) / 2].priority) {
+  while (posicion != 0 && pq -> heapArray[posicion].priority > pq->heapArray[(posicion - 1) / 2].priority) {
     heapElem temp = pq -> heapArray[posicion];
-    pq->heapArray[posicion] = pq -> heapArray[(posicion - 1) / 2];
-    pq->heapArray[(posicion - 1) / 2] = temp;
+    pq -> heapArray[posicion] = pq -> heapArray[(posicion - 1) / 2];
+    pq -> heapArray[(posicion - 1) / 2] = temp;
     
     posicion = (posicion - 1) / 2;
   }
   
 }
 /*
+while (i != 0 && h->heapArray[parent(i)].priority < h->heapArray[i].priority) {
+  swap(&(h->heapArray[i]), &(h->heapArray[parent(i)]));
+  i = parent(i);
+}
 
-    // Reajuste (Heapify Up)
-
+void swap(heapElem* x, heapElem* y) {
+    heapElem temp = *x;
+    *x = *y;
+    *y = temp;
+}
 */
 
 /*
@@ -106,6 +113,8 @@ void heap_push(Heap* pq, void* data, int priority){
 */
 
 void heap_pop(Heap* pq){
+  
+  
   return;
 }
 
