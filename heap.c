@@ -52,9 +52,19 @@ Heap* createHeap(){
 */
 
 void* heap_top(Heap* pq){
+    
+  if (pq -> size == 0) 
+  {      
     return NULL;
-}
+  }
 
+    // Eliminación de la raíz
+    void* maximo = pq -> heapArray[0].data;
+    pq -> heapArray[0] = pq -> heapArray[pq->size - 1];
+    pq -> size--;
+
+    return maximo;
+}
 /*
 3. Implemente la función `void heap_push(Heap* pq, void* data, int p)`. Esta función inserta un nuevo dato con prioridad `p` en el montículo. Si no recuerda como insertar datos en el montículo puede ver las [diapositivas](https://docs.google.com/presentation/d/1ZjXWMf6g05WdICqvno_oyRvorjAThABgbRGbEqc7mYU/edit#slide=id.g55ac49ed61_0_167).
 
