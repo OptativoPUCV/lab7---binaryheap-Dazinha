@@ -73,3 +73,29 @@ heap.c:118:9: error: unused variable ‘maximo’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 4172972
+Fri 29 Sep 2023 06:58:16 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c:115:7: error: conflicting types for ‘heap_pop’; have ‘void *(Heap *)’ {aka ‘void *(struct Heap *)’}
+  115 | void* heap_pop(Heap* pq){
+      |       ^~~~~~~~
+In file included from heap.c:6,
+                 from test.c:4:
+heap.h:9:6: note: previous declaration of ‘heap_pop’ with type ‘void(Heap *)’ {aka ‘void(struct Heap *)’}
+    9 | void heap_pop(Heap* pq);
+      |      ^~~~~~~~
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:125:3: error: ‘return’ with no value, in function returning non-void [-Werror=return-type]
+  125 |   return;
+      |   ^~~~~~
+heap.c:115:7: note: declared here
+  115 | void* heap_pop(Heap* pq){
+      |       ^~~~~~~~
+heap.c:118:9: error: unused variable ‘maximo’ [-Werror=unused-variable]
+  118 |   void* maximo = heap_top(pq);
+      |         ^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+78e6d03
