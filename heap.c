@@ -113,6 +113,13 @@ void swap(heapElem* x, heapElem* y) {
 */
 
 void heap_pop(Heap* pq){
+
+  //eliminar raíz
+  void* maximo = heap_top(pq);
+  
+  pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
+  pq -> size--;
+
   
   
   return;

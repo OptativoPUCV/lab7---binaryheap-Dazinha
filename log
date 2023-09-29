@@ -62,3 +62,14 @@ Thu 28 Sep 2023 07:39:15 PM UTC:
  tests:  7|1
 total_score: 45/70
 aaba330
+Fri 29 Sep 2023 06:57:52 PM UTC: 
+ heap.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:118:9: error: unused variable ‘maximo’ [-Werror=unused-variable]
+  118 |   void* maximo = heap_top(pq);
+      |         ^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+4172972
