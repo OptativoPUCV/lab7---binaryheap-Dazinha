@@ -116,7 +116,7 @@ void heap_pop(Heap* pq){
 
   
   //eliminar raíz
-  void* maximo = heap_top(pq);
+  void* maximo = pq -> heapArray[0].data;
   
   pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
   pq -> size--;
