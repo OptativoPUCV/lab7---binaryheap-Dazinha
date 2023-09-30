@@ -122,6 +122,10 @@ void heap_pop(Heap* pq){
   pq -> size--;
 
 
+  heapifyDown(pq, 0);
+
+  return maximo;
+
 }
 
 void heapifyDown(Heap* pq, int posicion) {

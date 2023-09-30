@@ -143,3 +143,27 @@ heap.c:119:9: error: unused variable ‘maximo’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 b4b79b9
+Sat 30 Sep 2023 02:24:12 AM UTC: 
+ heap.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:125:3: error: implicit declaration of function ‘heapifyDown’ [-Werror=implicit-function-declaration]
+  125 |   heapifyDown(pq, 0);
+      |   ^~~~~~~~~~~
+heap.c:127:10: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+  127 |   return maximo;
+      |          ^~~~~~
+heap.c:115:6: note: declared here
+  115 | void heap_pop(Heap* pq){
+      |      ^~~~~~~~
+heap.c: At top level:
+heap.c:131:6: error: conflicting types for ‘heapifyDown’; have ‘void(Heap *, int)’ {aka ‘void(struct Heap *, int)’} [-Werror]
+  131 | void heapifyDown(Heap* pq, int posicion) {
+      |      ^~~~~~~~~~~
+heap.c:125:3: note: previous implicit declaration of ‘heapifyDown’ with type ‘void(Heap *, int)’ {aka ‘void(struct Heap *, int)’}
+  125 |   heapifyDown(pq, 0);
+      |   ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+e6836a5
