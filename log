@@ -121,3 +121,14 @@ heap.c:119:9: error: unused variable ‘maximo’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 f97c450
+Sat 30 Sep 2023 02:15:17 AM UTC: 
+ heap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:119:9: error: unused variable ‘maximo’ [-Werror=unused-variable]
+  119 |   void* maximo = heap_top(pq);
+      |         ^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+cdc6b2b

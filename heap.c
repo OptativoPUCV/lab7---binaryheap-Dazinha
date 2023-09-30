@@ -137,8 +137,9 @@ void heapifyDown(Heap* pq, int posicion) {
         largest = right;
     }
 
-    if (largest != posicion) {
-          while (posicion != 0 && pq -> heapArray[posicion].priority > pq->heapArray[(posicion - 1) / 2].priority) {
+    if (largest != posicion) 
+    {
+      while (posicion != 0 && pq -> heapArray[posicion].priority > pq->heapArray[(posicion - 1) / 2].priority) {
     heapElem temp = pq -> heapArray[posicion];
     pq -> heapArray[posicion] = pq -> heapArray[(posicion - 1) / 2];
     pq -> heapArray[(posicion - 1) / 2] = temp;
