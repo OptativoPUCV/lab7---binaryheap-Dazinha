@@ -114,15 +114,37 @@ void swap(heapElem* x, heapElem* y) {
 
 void heap_pop(Heap* pq){
 
+  
   //eliminar raíz
   void* maximo = heap_top(pq);
   
   pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
   pq -> size--;
 
-  
-  
-  return;
+
 }
 
+void heapifyDown(Heap* pq, int posicion) {
+    int largest = posicion;
+    int left = 2 * posicion + 1;
+    int right = 2 * posicion + 2;
 
+    if (left < pq -> size && pq->heapArray[left].priority > pq ->heapArray[largest].priority) {
+        largest = left;
+    }
+
+    if (right < pq ->size && pq ->heapArray[right].priority > pq ->heapArray[largest].priority) {
+        largest = right;
+    }
+
+    if (largest != posicion) {
+          while (posicion != 0 && pq -> heapArray[posicion].priority > pq->heapArray[(posicion - 1) / 2].priority) {
+    heapElem temp = pq -> heapArray[posicion];
+    pq -> heapArray[posicion] = pq -> heapArray[(posicion - 1) / 2];
+    pq -> heapArray[(posicion - 1) / 2] = temp;
+    
+    posicion = (posicion - 1) / 2;
+  }
+        heapifyDown(pq, largest);
+    }
+}
