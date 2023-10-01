@@ -113,7 +113,6 @@ void swap(heapElem* x, heapElem* y) {
 */
 
 void heap_pop(Heap* pq){
-
   
   //eliminar raíz
   void* maximo = pq -> heapArray[0].data;
@@ -122,13 +121,13 @@ void heap_pop(Heap* pq){
   pq -> size--;
 
 
-  heapifyDown(pq, 0);
+  reajuste(pq, 0);
 
   return maximo;
 
 }
 
-void heapifyDown(Heap* pq, int posicion) {
+void reajuste(Heap* pq, int posicion) {
     int largest = posicion;
     int left = 2 * posicion + 1;
     int right = 2 * posicion + 2;
@@ -150,6 +149,6 @@ void heapifyDown(Heap* pq, int posicion) {
     
     posicion = (posicion - 1) / 2;
   }
-        heapifyDown(pq, largest);
+        reajuste(pq, largest);
     }
 }
