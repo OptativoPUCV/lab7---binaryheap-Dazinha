@@ -266,3 +266,21 @@ heap.c:140:7: note: previous implicit declaration of ‘swap’ with type ‘voi
 cc1: all warnings being treated as errors
 Compilation failed
 15b301c
+Sun 01 Oct 2023 04:36:00 PM UTC: 
+ heap.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:140:7: error: implicit declaration of function ‘swap’ [-Werror=implicit-function-declaration]
+  140 |       swap(&pq->heapArray[current], &pq->heapArray[largest]);
+      |       ^~~~
+heap.c: At top level:
+heap.c:149:6: error: conflicting types for ‘swap’; have ‘void(heapElem *, heapElem *)’ {aka ‘void(struct nodo *, struct nodo *)’} [-Werror]
+  149 | void swap(heapElem* x, heapElem* y) {
+      |      ^~~~
+heap.c:140:7: note: previous implicit declaration of ‘swap’ with type ‘void(heapElem *, heapElem *)’ {aka ‘void(struct nodo *, struct nodo *)’}
+  140 |       swap(&pq->heapArray[current], &pq->heapArray[largest]);
+      |       ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+0fe5da3

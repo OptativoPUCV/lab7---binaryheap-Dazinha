@@ -117,7 +117,7 @@ void heap_pop(Heap* pq){
   pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
   pq -> size--;
 
-  int current = 0;  // Start at the root
+  int current = 0; 
   int true = 1;
   
   while (true) {
@@ -142,7 +142,6 @@ void heap_pop(Heap* pq){
     else 
     {
       true = 0;
-      break;
     }
   }
 }
