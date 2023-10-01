@@ -122,9 +122,7 @@ void heap_pop(Heap* pq){
 
 
   reajuste(pq, 0);
-
-  return maximo;
-
+  
 }
 
 void reajuste(Heap* pq, int posicion) {

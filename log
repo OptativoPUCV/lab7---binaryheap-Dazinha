@@ -191,3 +191,24 @@ heap.c:124:3: note: previous implicit declaration of ‘reajuste’ with type �
 cc1: all warnings being treated as errors
 Compilation failed
 0cf30ed
+Sun 01 Oct 2023 04:04:26 PM UTC: 
+ heap.c | 2 --
+ 1 file changed, 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:124:3: error: implicit declaration of function ‘reajuste’ [-Werror=implicit-function-declaration]
+  124 |   reajuste(pq, 0);
+      |   ^~~~~~~~
+heap.c:118:9: error: unused variable ‘maximo’ [-Werror=unused-variable]
+  118 |   void* maximo = pq -> heapArray[0].data;
+      |         ^~~~~~
+heap.c: At top level:
+heap.c:128:6: error: conflicting types for ‘reajuste’; have ‘void(Heap *, int)’ {aka ‘void(struct Heap *, int)’} [-Werror]
+  128 | void reajuste(Heap* pq, int posicion) {
+      |      ^~~~~~~~
+heap.c:124:3: note: previous implicit declaration of ‘reajuste’ with type ‘void(Heap *, int)’ {aka ‘void(struct Heap *, int)’}
+  124 |   reajuste(pq, 0);
+      |   ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+c73c3da
