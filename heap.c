@@ -141,6 +141,7 @@ void heap_pop(Heap* pq){
     } 
     else 
     {
+      true = 0;
       break;
     }
   }
