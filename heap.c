@@ -113,40 +113,41 @@ void swap(heapElem* x, heapElem* y) {
 */
 
 void heap_pop(Heap* pq){
-  
-  //eliminar raíz
-  //void* maximo = pq -> heapArray[0].data;
-  
+
   pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
   pq -> size--;
 
-
-  reajuste(pq, 0);
+  int current = 0;  // Start at the root
+  int true = 1;
   
+  while (true) {
+    int left_child = 2 * current + 1;
+    int right_child = 2 * current + 2;
+    int largest = current;
+    
+    if (left_child < pq->size && pq->heapArray[left_child].priority > pq->heapArray[largest].priority) 
+    {
+      largest = left_child;
+    }
+    
+    if (right_child < pq->size && pq->heapArray[right_child].priority > pq->heapArray[largest].priority) 
+    {
+      largest = right_child;
+    }
+
+    if (largest != current) 
+    {
+      swap(&pq->heapArray[current], &pq->heapArray[largest]);
+    } 
+    else 
+    {
+      break;
+    }
+  }
 }
 
-void reajuste(Heap* pq, int posicion) {
-    int largest = posicion;
-    int left = 2 * posicion + 1;
-    int right = 2 * posicion + 2;
-
-    if (left < pq -> size && pq->heapArray[left].priority > pq ->heapArray[largest].priority) {
-        largest = left;
-    }
-
-    if (right < pq ->size && pq ->heapArray[right].priority > pq ->heapArray[largest].priority) {
-        largest = right;
-    }
-
-    if (largest != posicion) 
-    {
-      while (posicion != 0 && pq -> heapArray[posicion].priority > pq->heapArray[(posicion - 1) / 2].priority) {
-    heapElem temp = pq -> heapArray[posicion];
-    pq -> heapArray[posicion] = pq -> heapArray[(posicion - 1) / 2];
-    pq -> heapArray[(posicion - 1) / 2] = temp;
-    
-    posicion = (posicion - 1) / 2;
-  }
-        reajuste(pq, largest);
-    }
+void swap(heapElem* x, heapElem* y) {
+    heapElem temp = *x;
+    *x = *y;
+    *y = temp;
 }
