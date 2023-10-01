@@ -138,10 +138,12 @@ void heap_pop(Heap* pq){
     if (largest != current) 
     {
       swap(&pq->heapArray[current], &pq->heapArray[largest]);
+      current = largest;
     } 
     else 
     {
       true = 0;
+      return;
     }
   }
 }
