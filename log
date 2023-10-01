@@ -212,3 +212,21 @@ heap.c:124:3: note: previous implicit declaration of ‘reajuste’ with type �
 cc1: all warnings being treated as errors
 Compilation failed
 c73c3da
+Sun 01 Oct 2023 04:06:31 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:124:3: error: implicit declaration of function ‘reajuste’ [-Werror=implicit-function-declaration]
+  124 |   reajuste(pq, 0);
+      |   ^~~~~~~~
+heap.c: At top level:
+heap.c:128:6: error: conflicting types for ‘reajuste’; have ‘void(Heap *, int)’ {aka ‘void(struct Heap *, int)’} [-Werror]
+  128 | void reajuste(Heap* pq, int posicion) {
+      |      ^~~~~~~~
+heap.c:124:3: note: previous implicit declaration of ‘reajuste’ with type ‘void(Heap *, int)’ {aka ‘void(struct Heap *, int)’}
+  124 |   reajuste(pq, 0);
+      |   ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+3238b10
