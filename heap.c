@@ -95,23 +95,15 @@ void heap_push(Heap* pq, void* data, int priority){
   }
   
 }
-/*
-while (i != 0 && h->heapArray[parent(i)].priority < h->heapArray[i].priority) {
-  swap(&(h->heapArray[i]), &(h->heapArray[parent(i)]));
-  i = parent(i);
-}
-
-void swap(heapElem* x, heapElem* y) {
-    heapElem temp = *x;
-    *x = *y;
-    *y = temp;
-}
-*/
 
 /*
 4. Implemente la función `void heap_pop(Heap* pq)`. Esta función elimina el mayor elemento del montículo (la raíz). Si no recuerda el procedimiento puede ver las [diapositivas](https://docs.google.com/presentation/d/1ZjXWMf6g05WdICqvno_oyRvorjAThABgbRGbEqc7mYU/edit#slide=id.g10c6e3d52b_0_98).
 */
 
 void heap_pop(Heap* pq){
+  pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
+  pq -> size--;
 
+
+  
 }
