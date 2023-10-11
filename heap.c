@@ -121,8 +121,8 @@ void heap_pop(Heap* pq){
   int true = 0;
   
   while (true) {
-    int left_child = 2 * current + 1;
-    int right_child = 2 * current + 2;
+    int left_child = (2 * current) + 1;
+    int right_child = (2 * current) + 2;
     int largest = current;
     
     if (left_child < pq->size && pq->heapArray[left_child].priority > pq->heapArray[largest].priority) 
