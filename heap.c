@@ -112,6 +112,10 @@ typedef struct Heap{
 */
 
 void heap_pop(Heap* pq){
+
+  pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
+  pq -> size--;
+  
   int current = 0;
   int izq, der, mayor;
 
