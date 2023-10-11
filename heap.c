@@ -98,25 +98,53 @@ void heap_push(Heap* pq, void* data, int priority){
 
 /*
 4. Implemente la función `void heap_pop(Heap* pq)`. Esta función elimina el mayor elemento del montículo (la raíz). Si no recuerda el procedimiento puede ver las [diapositivas](https://docs.google.com/presentation/d/1ZjXWMf6g05WdICqvno_oyRvorjAThABgbRGbEqc7mYU/edit#slide=id.g10c6e3d52b_0_98).
+
+typedef struct nodo{
+   void* data;
+   int priority;
+}heapElem;
+
+typedef struct Heap{
+  heapElem* heapArray;
+  int size;
+  int capac;
+} Heap;
 */
 
 void heap_pop(Heap* pq){
-  pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
-  pq -> size--;
+  int current = 0;
+  int izq, der, mayor;
 
-  int largest = 0;
-  int left = 2 * largest + 1;
-  int right = 2 * largest + 2;
-
-  if (left < pq->size && pq->heapArray[left].priority > pq->heapArray[largest].priority) 
-  {
-        largest = left;
-  }
-  
-  if (right < pq->size && pq->heapArray[right].priority > pq->heapArray[largest].priority) 
-  {
-        largest = right;
-  }
+  while (1) {
+    izq = 2 * current + 1;
+    der = 2 * current + 2;
+    mayor = current;
 
   
+    if (izq < pq -> size && pq -> heapArray[izq].priority > pq->heapArray[mayor].priority) 
+    {
+      mayor = izq;
+    }
+        
+    if (der < pq -> size && pq->heapArray[der].priority > pq->heapArray[mayor].priority) 
+    {
+      mayor = der;
+    }
+
+    //cambiar current por hijo mayor (burbuja)
+    if (mayor != current) 
+    {
+      heapElem aux = pq->heapArray[current];
+      pq->heapArray[current] = pq->heapArray[mayor];
+      pq->heapArray[mayor] = aux;
+
+      current = mayor;
+    } 
+    else 
+    {
+      break;
+    }
+    
+  }
+
 }
