@@ -357,3 +357,9 @@ heap.c:140:7: error: implicit declaration of function ‘swap’ [-Werror=implic
 cc1: all warnings being treated as errors
 Compilation failed
 2f6c831
+Wed 11 Oct 2023 10:29:03 PM UTC: 
+ heap.c | 32 --------------------------------
+ 1 file changed, 32 deletions(-)
+ tests:  7|1
+total_score: 45/70
+2b7efff

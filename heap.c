@@ -114,36 +114,4 @@ void swap(heapElem* x, heapElem* y) {
 
 void heap_pop(Heap* pq){
 
-  pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
-  pq -> size--;
-
-  int current = 0; 
-  int true = 0;
-  
-  while (true) {
-    int left_child = (2 * current) + 1;
-    int right_child = (2 * current) + 2;
-    int largest = current;
-    
-    if (left_child < pq->size && pq->heapArray[left_child].priority > pq->heapArray[largest].priority) 
-    {
-      largest = left_child;
-    }
-
-    if (right_child < pq->size && pq->heapArray[right_child].priority > pq->heapArray[largest].priority) 
-    {
-      largest = right_child;
-    }
-
-    if (largest != current) 
-    {
-      swap(&pq->heapArray[current], &pq->heapArray[largest]);
-      current = largest;
-    } 
-    else 
-    {
-      true = 1;
-      return;
-    }
-  }
 }
