@@ -346,3 +346,14 @@ heap.c:140:7: note: previous implicit declaration of ‘swap’ with type ‘voi
 cc1: all warnings being treated as errors
 Compilation failed
 42c0ed3
+Wed 11 Oct 2023 10:28:47 PM UTC: 
+ heap.c | 6 ------
+ 1 file changed, 6 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:140:7: error: implicit declaration of function ‘swap’ [-Werror=implicit-function-declaration]
+  140 |       swap(&pq->heapArray[current], &pq->heapArray[largest]);
+      |       ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+2f6c831

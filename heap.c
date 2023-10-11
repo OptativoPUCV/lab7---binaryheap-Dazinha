@@ -147,9 +147,3 @@ void heap_pop(Heap* pq){
     }
   }
 }
-
-void swap(heapElem* x, heapElem* y) {
-    heapElem temp = *x;
-    *x = *y;
-    *y = temp;
-}
