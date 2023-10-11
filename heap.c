@@ -104,6 +104,19 @@ void heap_pop(Heap* pq){
   pq -> heapArray[0] = pq -> heapArray[pq -> size - 1];
   pq -> size--;
 
+  int largest = 0;
+  int left = 2 * largest + 1;
+  int right = 2 * largest + 2;
+
+  if (left < pq->size && pq->heapArray[left].priority > pq->heapArray[largest].priority) 
+  {
+        largest = left;
+  }
+  
+  if (right < pq->size && pq->heapArray[right].priority > pq->heapArray[largest].priority) 
+  {
+        largest = right;
+  }
 
   
 }
